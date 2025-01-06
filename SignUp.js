@@ -48,7 +48,7 @@ submit.addEventListener("click", function (event) {
       // Signed up
       const user = userCredential.user;
       // Redirect to login page
-      window.location.href = "Login.html";
+      window.location.href = "login.html";
     })
     .catch((error) => {
       alert("The Email Entered Is Already Used, Try Another!!");
