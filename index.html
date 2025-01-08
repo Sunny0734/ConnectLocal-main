@@ -6,6 +6,32 @@
   prefix="og: https://ogp.me/ns#"
 >
   <head>
+	  <script type="module">
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+
+  // Your Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBU8-47Xof4jzLTustckH13Y4klGpk_I-o",
+    authDomain: "login-cf378.firebaseapp.com",
+    projectId: "login-cf378",
+    storageBucket: "login-cf378.appspot.com",
+    messagingSenderId: "514341270319",
+    appId: "1:514341270319:web:f7ffb8f3333d53baa4a7da",
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Check if the user is logged in
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      // Redirect to login page if not logged in
+      window.location.href = "login.html";
+    }
+  });
+</script>
     <link
     rel="stylesheet"
     href="https://unpkg.com/swiper/swiper-bundle.min.css"
@@ -672,16 +698,6 @@
 
 </footer>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (!user) {
-        // No user is signed in, redirect to login page
-        window.location.href = "login.html";
-      }
-    });
-  });
-</script>
 
     
     
